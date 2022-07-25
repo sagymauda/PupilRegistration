@@ -1,8 +1,6 @@
 package com.example.PupilRegistration.clr;
 
-import com.example.PupilRegistration.data.Grade;
-import com.example.PupilRegistration.data.Pupil;
-import com.example.PupilRegistration.repository.PupilRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
