@@ -1,22 +1,23 @@
 package com.example.PupilRegistration.clr;
 
-
+import com.example.PupilRegistration.data.Grade;
+import com.example.PupilRegistration.data.Pupil;
+import com.example.PupilRegistration.repository.PupilRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-@Order(1)
 public class InitData implements CommandLineRunner {
 
     @Autowired
-    PupilRepository pupilRepository;
+    private PupilRepository pupilRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -42,10 +43,9 @@ public class InitData implements CommandLineRunner {
         List<Grade> gradesGal = new ArrayList<>();
 
         gradesGal.add(grade5);
-        gradesShahaf.add(grade3);
-        gradesShahaf.add(grade4);
-        gradesSagi.add(grade1);
-        gradesSagi.add(grade2);
+        gradesShahaf.addAll(Arrays.asList(grade3,grade4));
+        gradesSagi.addAll(Arrays.asList(grade1,grade2));
+
 
         Pupil sagi = new Pupil();
         sagi.setGpa(500);
@@ -61,15 +61,12 @@ public class InitData implements CommandLineRunner {
         gal.setGrades(gradesGal);
 
         List<Pupil> pupils = new ArrayList<>();
-        pupils.add(sagi);
-        pupils.add(shahaf);
-        pupils.add(gal);
+        pupils.addAll(Arrays.asList(sagi, gal, shahaf));
 
         pupilRepository.saveAll(pupils);
 
         List<Pupil> friendsOfSagi = new ArrayList<>();
-        friendsOfSagi.add(shahaf);
-        friendsOfSagi.add(gal);
+        friendsOfSagi.addAll(Arrays.asList(gal, shahaf));
         sagi.setFriends(friendsOfSagi);
 
         pupilRepository.save(sagi);

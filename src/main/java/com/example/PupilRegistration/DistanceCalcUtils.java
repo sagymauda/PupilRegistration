@@ -1,6 +1,6 @@
 package com.example.PupilRegistration;
 
-public class DistanceCalcUtils {
+public final class DistanceCalcUtils {
 
     public static double haversine(double lat1, double lon1, double lat2, double lon2) {
 

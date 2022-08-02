@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "grades")
 @NoArgsConstructor
-public class Grade implements Serializable {
+public class Grade  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore

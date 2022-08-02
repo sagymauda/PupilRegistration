@@ -15,7 +15,7 @@ import java.util.*;
 @Table(name = "pupil")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pupil implements Serializable {
+public class Pupil {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

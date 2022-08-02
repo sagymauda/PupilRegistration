@@ -1,6 +1,7 @@
 package com.example.PupilRegistration.controller;
 
 import com.example.PupilRegistration.data.School;
+import com.example.PupilRegistration.dto.SchoolDto;
 import com.example.PupilRegistration.service.SchoolService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class SchoolControllerImpl{
     SchoolService schoolService;
 
     @PostMapping(value = "/school")
-    public ResponseEntity<School> createSchool(School school) {
-        return ResponseEntity.ok(schoolService.createSchool(school));
+    public ResponseEntity<School> createSchool(SchoolDto schoolDto) {
+        return ResponseEntity.ok(schoolService.createSchool(schoolDto));
     }
 }
